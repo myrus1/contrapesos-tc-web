@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,55 +8,63 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Contrapesos de plomo de alta precisión para balanceo automotor. Venta mayorista para gomerías, talleres y distribuidores." />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Contrapesos de plomo de alta precisión para balanceo automotor. Venta mayorista para gomerías, talleres y distribuidores."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-        <!-- Google Fonts: Inter -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Tailwind CSS via CDN for rapid prototyping -->
-		<script is:inline src="https://cdn.tailwindcss.com"></script>
-        <script is:inline>
-            tailwind.config = {
-              theme: {
-                extend: {
-                  fontFamily: {
-                    sans: ['Inter', 'sans-serif'],
-                  },
-                  colors: {
-                    brand: {
-                        dark: '#1F2937', // Gray 800
-                        primary: '#F97316', // Light Orange (Tailwind Orange 500)
-                        primaryHover: '#EA580C', // Darker Orange for hover states (Orange 600)
-                        accent: '#3B82F6', // Blue 500
-                        light: '#FFF7ED' // Orange 50
-                    }
-                  }
-                }
-              }
-            }
-          </script>
-	</head>
-	<body class="font-sans text-gray-800 bg-white antialiased selection:bg-brand-primary selection:text-white">
-		<slot />
-	</body>
+    <!-- Tailwind CSS via CDN for rapid prototyping -->
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+    <script is:inline>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                dark: "#262626", // Neutral dark (Neutral 800) for high contrast and modern look
+                primary: "#EF8E21", // Catalog Orange
+                primaryHover: "#D37727", // Darker Catalog Orange for hover
+                accent: "#3B82F6", // Light Blue (Blue 500)
+                light: "#FEF6EE", // Very soft tint of catalog orange for backgrounds
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="font-sans text-gray-800 bg-white antialiased selection:bg-brand-primary selection:text-white"
+  >
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-    /** Smooth scrolling para los anchor links */
-	html {
-        scroll-behavior: smooth;
-	}
-    
-    /** Ajuste de padding si el header es fijo */
-    section[id] {
-        scroll-margin-top: 5rem;
-    }
+  /** Smooth scrolling para los anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /** Ajuste de padding si el header es fijo */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
 </style>
