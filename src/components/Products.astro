@@ -1,5 +1,5 @@
 ---
-
+import ProductCard from './ProductCard.astro';
 ---
 
 <section
@@ -19,88 +19,37 @@
         Nuestras Soluciones
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-        Fabricados con plomo de primera fundición, garantizando el balanceo
-        ideal para cada tipo de rodado.
+        Fabricados con plomo de primera fundición, <br />garantizando el
+        balanceo ideal para cada tipo de rodado.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Producto 1 -->
-      <div
-        class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden hover:shadow-md transition-shadow group"
+      <ProductCard
+        title="Contrapeso Autoadhesivo"
+        imgSrc={`${import.meta.env.BASE_URL}/contrapeso-autoadesivo.png`}
       >
-        <div
-          class="bg-orange-50 aspect-square flex items-center justify-center p-6 group-hover:bg-orange-100 transition-colors"
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}/contrapeso-autoadesivo.png`}
-            alt="Contrapeso Autoadhesivo"
-            class="w-full h-full object-contain mix-blend-multiply drop-shadow-sm transition-transform group-hover:scale-105"
-          />
-        </div>
-        <div class="p-6">
-          <h3
-            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors"
-          >
-            Contrapeso Autoadhesivo
-          </h3>
-          <p class="text-sm text-gray-500 line-clamp-2">
-            Cinta doble faz de alta resistencia. Tiras fraccionables para
-            llantas de aleación en autos y camionetas.
-          </p>
-        </div>
-      </div>
+        Cinta doble faz de alta resistencia. Tiras fraccionables para
+        llantas de aleación en autos y camionetas.
+      </ProductCard>
 
       <!-- Producto 2 -->
-      <div
-        class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden hover:shadow-md transition-shadow group"
+      <ProductCard
+        title="Contrapeso universal de plomo (Clip)"
+        imgSrc={`${import.meta.env.BASE_URL}/contrapeso-universal.png`}
       >
-        <div
-          class="bg-orange-50 aspect-square flex items-center justify-center p-6 group-hover:bg-orange-100 transition-colors"
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}/contrapeso-universal.png`}
-            alt="Contrapeso universal de plomo (Clip)"
-            class="w-full h-full object-contain mix-blend-multiply drop-shadow-sm transition-transform group-hover:scale-105"
-          />
-        </div>
-        <div class="p-6">
-          <h3
-            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors"
-          >
-            Contrapeso universal de plomo (Clip)
-          </h3>
-          <p class="text-sm text-gray-500 line-clamp-2">
-            Clip de plomo. Diseñado para llantas de acero con agarre seguro ante
-            vibraciones.
-          </p>
-        </div>
-      </div>
+        Clip de plomo. Diseñado para llantas de acero con agarre seguro ante
+        vibraciones.
+      </ProductCard>
 
       <!-- Producto 3 -->
-      <div
-        class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden hover:shadow-md transition-shadow group"
+      <ProductCard
+        title="Contrapeso Aleación"
+        imgSrc={`${import.meta.env.BASE_URL}/contrapeso-aleación.png`}
       >
-        <div
-          class="bg-orange-50 aspect-square flex items-center justify-center p-6 group-hover:bg-orange-100 transition-colors"
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}/contrapeso-aleación.png`}
-            alt="Contrapeso Aleación"
-            class="w-full h-full object-contain mix-blend-multiply drop-shadow-sm transition-transform group-hover:scale-105"
-          />
-        </div>
-        <div class="p-6">
-          <h3
-            class="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors"
-          >
-            Contrapeso Aleación
-          </h3>
-          <p class="text-sm text-gray-500 line-clamp-2">
-            Descripción del producto .
-          </p>
-        </div>
-      </div>
+        Descripción del producto .
+      </ProductCard>
     </div>
 
     <div class="mt-12 text-center">

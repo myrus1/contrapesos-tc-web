@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <link
       rel="icon"
       type="image/svg+xml"
-      href={`${import.meta.env.BASE_URL}/logo-tc.svg`}
+      href={`${import.meta.env.BASE_URL}/logo-tc-icon.svg`}
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -52,6 +52,23 @@ const { title } = Astro.props;
           },
         },
       };
+    </script>
+
+    <!-- Theme Detect Script for Favicon -->
+    <script is:inline>
+      function updateFavicon() {
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const favicon = document.querySelector('link[rel="icon"]');
+        if (favicon) {
+          const baseUrl = favicon.href.substring(0, favicon.href.lastIndexOf("/"));
+          favicon.href = isDark
+            ? `${baseUrl}/logo-tc-icon-white.svg`
+            : `${baseUrl}/logo-tc-icon.svg`;
+        }
+      }
+
+      updateFavicon();
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
     </script>
   </head>
   <body
