@@ -19,8 +19,11 @@ import ProductCard from './ProductCard.astro';
         Nuestras Soluciones
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-        Fabricados con plomo de primera fundición, <br />garantizando el
-        balanceo ideal para cada tipo de rodado.
+        Diseño según plano de llantas.
+        Tolerancias según especificaciones originales.
+        En peso y apertura de grapas.
+        Ensayos de tracción para control de agarre.
+        Controles de fabricación para garantizar tolerancias y calidad.
       </p>
     </div>
 
@@ -37,19 +40,20 @@ import ProductCard from './ProductCard.astro';
 
       <!-- Producto 2 -->
       <ProductCard
-        title="Contrapeso universal de plomo (Clip)"
+        title="Contrapeso para llanta de chapa"
         imgSrc={`${import.meta.env.BASE_URL}/contrapeso-universal.png`}
       >
-        Clip de plomo. Diseñado para llantas de acero con agarre seguro ante
-        vibraciones.
+        Fabricados en plomo antimonioso al 4%. Diseñado para llantas de chapa 
+        con agarre seguro ante vibraciones.
       </ProductCard>
 
       <!-- Producto 3 -->
       <ProductCard
-        title="Contrapeso Aleación"
+        title="Contrapeso para llanta de aleación"
         imgSrc={`${import.meta.env.BASE_URL}/contrapeso-aleación.png`}
       >
-        Diseñado para llantas de Aluminio.
+        Fabricados en plomo antimonioso al 4%. Diseñado para llantas de Aluminio 
+        con agarre seguro ante vibraciones.
       </ProductCard>
     </div>
 
@@ -96,7 +100,8 @@ import ProductCard from './ProductCard.astro';
     <div class="mt-12 text-center">
       <a
         href={`${import.meta.env.BASE_URL}/catalogo-contrapesos-2026.pdf`}
-        download
+        target="_blank"
+        rel="noopener noreferrer"
         class="text-brand-primary font-semibold hover:text-brand-primaryHover flex items-center justify-center"
       >
         Ver ficha técnica completa en el PDF
