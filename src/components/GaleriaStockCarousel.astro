@@ -1,0 +1,207 @@
+---
+import { Image } from "astro:assets";
+
+import fotoBolsas1 from "../assets/stock/bolsas-cu-020.jpg";
+import fotoBolsas2 from "../assets/stock/bolsas-ta.jpg";
+import fotoRollosMesa from "../assets/stock/rollos-mesa.jpg";
+import fotoRueda from "../assets/stock/contrapeso-rueda.jpg";
+import fotoPallet from "../assets/stock/pallet-completo.jpg";
+import fotoRollosCamioneta from "../assets/stock/rollos-camioneta.jpg";
+
+const imagenes = [
+  { src: fotoBolsas1, alt: "Stock bolsas contrapesos universales" },
+  { src: fotoBolsas2, alt: "Bolsas ta" },
+  { src: fotoRollosMesa, alt: "Materia prima en rollos de plomo" },
+  { src: fotoRueda, alt: "Contrapeso TC aplicado en llanta" },
+  { src: fotoPallet, alt: "Pallet de productos listo para despacho" },
+  { src: fotoRollosCamioneta, alt: "Carga de materia prima" },
+];
+
+// Triplicamos el array para lograr un efecto infinito impecable
+const carouselItems = [...imagenes, ...imagenes, ...imagenes];
+---
+
+<section
+  id="stock-carousel"
+  class="pt-32 pb-20 bg-gray-50 border-t border-gray-100"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span
+        class="inline-block px-4 py-1 bg-brand-primary/10 text-brand-primary font-bold text-xs tracking-widest uppercase rounded-full mb-4"
+        >Alternativa de Diseño</span
+      >
+      <h2
+        class="text-base font-semibold text-brand-primary uppercase tracking-wider"
+      >
+        Infraestructura (Vista Carrusel)
+      </h2>
+      <p
+        class="mt-2 text-4xl font-extrabold text-brand-dark tracking-tight sm:text-5xl"
+      >
+        Stock Real y Capacidad
+      </p>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+        Navega arrastrando las imágenes con el mouse.
+      </p>
+    </div>
+  </div>
+
+  <!-- Contenedor tipo Tarjeta del Carrusel -->
+  <div
+    class="bg-white rounded-[2rem] max-w-7xl mx-auto shadow-sm border border-gray-100 overflow-hidden py-10 px-0 sm:px-4"
+  >
+    <div
+      id="carrusel-infinito"
+      class="relative w-full overflow-hidden cursor-grab no-scrollbar hover:cursor-grab active:cursor-grabbing"
+    >
+      <div class="flex gap-4 sm:gap-6 w-max px-4">
+        {
+          carouselItems.map((imagen, index) => (
+            <div class="carousel-slide flex-none w-[75vw] sm:w-72 md:w-80 lg:w-[22rem] overflow-hidden rounded-2xl shadow-md relative group select-none">
+              <Image
+                src={imagen.src}
+                alt={imagen.alt}
+                width={800}
+                height={800}
+                quality="high"
+                draggable="false"
+                class="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+              />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Efecto de difuminado en los laterales usando CSS Mask */
+  /* #carrusel-infinito {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black %, transparent);
+    mask-image: linear-gradient(to right, transparent, black 7%, black 80%, transparent);
+  } */
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("carrusel-infinito");
+    if (!slider) return;
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let isHovered = false;
+    let animationId: number;
+
+    // Velocidad de giro automático (más despacio)
+    const speed = 0.5;
+
+    // Lógica para efecto infinito
+    const smoothInfinitScroll = () => {
+      if (!isDown && !isHovered) {
+        slider.scrollLeft += speed;
+
+        // Cuando llegamos al segundo set (ya pasamos el primer set completo)
+        // saltamos de vuelta al principio (primer set) para dar sensación infinita
+        const singleSetWidth = slider.scrollWidth / 3;
+        if (slider.scrollLeft >= singleSetWidth * 2) {
+          slider.scrollLeft = singleSetWidth;
+        } else if (slider.scrollLeft <= 0) {
+          slider.scrollLeft = singleSetWidth;
+        }
+      }
+      animationId = requestAnimationFrame(smoothInfinitScroll);
+    };
+
+    // Iniciar con la barra ubicada en el set de en el medio
+    const initScroll = () => {
+      const singleSetWidth = slider.scrollWidth / 3;
+      slider.scrollLeft = singleSetWidth;
+      animationId = requestAnimationFrame(smoothInfinitScroll);
+    };
+
+    // Pequeño timeout para dar tiempo a renderizar la fuente/images
+    setTimeout(initScroll, 500);
+
+    // Eventos de pausa al hacer Hover
+    slider.addEventListener("mouseenter", () => {
+      isHovered = true;
+    });
+    slider.addEventListener("mouseleave", () => {
+      isHovered = false;
+      isDown = false;
+    });
+
+    // Eventos de arrastre (Drag)
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseup", () => {
+      isDown = false;
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // multiplicador de velocidad de arrastre
+
+      slider.scrollLeft = scrollLeft - walk;
+
+      // Wrap-around infinito durante el drag
+      const singleSetWidth = slider.scrollWidth / 3;
+      if (slider.scrollLeft >= singleSetWidth * 2) {
+        slider.scrollLeft -= singleSetWidth;
+        scrollLeft -= singleSetWidth; // ajustar la referencia de inicio
+      } else if (slider.scrollLeft <= singleSetWidth / 2) {
+        slider.scrollLeft += singleSetWidth;
+        scrollLeft += singleSetWidth; // ajustar la referencia de inicio
+      }
+    });
+
+    // Soporte táctil básico
+    slider.addEventListener(
+      "touchstart",
+      () => {
+        isHovered = true;
+      },
+      { passive: true },
+    );
+    slider.addEventListener(
+      "touchend",
+      () => {
+        isHovered = false;
+      },
+      { passive: true },
+    );
+    slider.addEventListener(
+      "scroll",
+      () => {
+        if (!isDown) {
+          const singleSetWidth = slider.scrollWidth / 3;
+          if (slider.scrollLeft >= singleSetWidth * 2) {
+            slider.scrollLeft -= singleSetWidth;
+          } else if (slider.scrollLeft <= singleSetWidth / 2) {
+            slider.scrollLeft += singleSetWidth;
+          }
+        }
+      },
+      { passive: true },
+    );
+  });
+</script>
