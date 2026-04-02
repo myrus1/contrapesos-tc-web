@@ -8,7 +8,7 @@ const { title, imgSrc } = Astro.props;
 ---
 
 <div
-  class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden hover:shadow-md transition-shadow group"
+  class="bg-white rounded-xl shadow-sm border border-orange-100 overflow-hidden hover:shadow-md transition-shadow group max-w-sm mx-auto w-full"
 >
   <div
     class="bg-orange-50 aspect-square flex items-center justify-center p-6 group-hover:bg-orange-200 transition-colors"
@@ -25,7 +25,7 @@ const { title, imgSrc } = Astro.props;
     >
       {title}
     </h3>
-    <p class="text-sm text-gray-500 line-clamp-2">
+    <p class="text-sm text-gray-500">
       <slot />
     </p>
   </div>
