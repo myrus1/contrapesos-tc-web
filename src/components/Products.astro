@@ -57,8 +57,31 @@ import ProductCard from './ProductCard.astro';
       </ProductCard>
     </div>
 
+    <div class="mt-8 mb-12 text-center">
+      <a
+        href={`${import.meta.env.BASE_URL}/catalogo-contrapesos-2026.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-brand-primary font-semibold hover:text-brand-primaryHover flex items-center justify-center"
+      >
+        Ver ficha técnica completa en el PDF
+        <svg
+          class="w-4 h-4 ml-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
+        >
+      </a>
+    </div>
+
     <!-- Especificaciones de Clips -->
-    <div class="mt-20 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+    <div class="mt-16 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
       <div class="flex flex-col md:flex-row">
         <div class="md:w-1/2 flex items-center">
           <div class="p-8 lg:p-12">
@@ -95,29 +118,6 @@ import ProductCard from './ProductCard.astro';
           <img src={`${import.meta.env.BASE_URL}/05.jpg`} alt="Clips de Contrapesos" class="w-full object-cover" />
         </div>
       </div>
-    </div>
-
-    <div class="mt-12 text-center">
-      <a
-        href={`${import.meta.env.BASE_URL}/catalogo-contrapesos-2026.pdf`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-brand-primary font-semibold hover:text-brand-primaryHover flex items-center justify-center"
-      >
-        Ver ficha técnica completa en el PDF
-        <svg
-          class="w-4 h-4 ml-1"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
-        >
-      </a>
     </div>
   </div>
 </section>

@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+
+import fotoBolsas1 from "../assets/stock/bolsas-cu-020.jpg";
+import fotoBolsas2 from "../assets/stock/bolsas-ta.jpg";
+import fotoRollosMesa from "../assets/stock/rollos-mesa.jpg";
+import fotoRueda from "../assets/stock/contrapeso-rueda.jpg";
+import fotoPallet from "../assets/stock/pallet-completo.jpg";
+import fotoRollosCamioneta from "../assets/stock/rollos-camioneta.jpg";
+
+const imagenes = [
+  { src: fotoBolsas1, alt: "Stock bolsas contrapesos universales" },
+  { src: fotoBolsas2, alt: "Bolsas ta" },
+  { src: fotoRollosMesa, alt: "Materia prima en rollos de plomo" },
+  { src: fotoRueda, alt: "Contrapeso TC aplicado en llanta" },
+  { src: fotoPallet, alt: "Pallet de productos listo para despacho" },
+  { src: fotoRollosCamioneta, alt: "Carga de materia prima" },
+];
+---
+
+<section id="stock" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2
+        class="text-base font-semibold text-brand-primary uppercase tracking-wider"
+      >
+        Infraestructura
+      </h2>
+      <p
+        class="mt-2 text-4xl font-extrabold text-brand-dark tracking-tight sm:text-5xl"
+      >
+        Stock Real y Capacidad de Respuesta
+      </p>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+        Contamos con materia prima permanente y producto terminado listo para
+        abastecer a la red de distribuidores en todo el país.
+      </p>
+    </div>
+
+    <!-- Grilla de imágenes -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {
+        imagenes.map((imagen) => (
+          <div class="overflow-hidden rounded-lg shadow-md border border-gray-100 group">
+            <Image
+              src={imagen.src}
+              alt={imagen.alt}
+              width={800}
+              height={800}
+              quality="high"
+              class="w-full h-full object-cover aspect-square transition-all duration-300 filter grayscale group-hover:grayscale-0 group-hover:scale-105"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
