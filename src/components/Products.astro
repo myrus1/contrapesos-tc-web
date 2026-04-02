@@ -19,8 +19,11 @@ import ProductCard from './ProductCard.astro';
         Nuestras Soluciones
       </p>
       <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
-        Fabricados con plomo de primera fundición, <br />garantizando el
-        balanceo ideal para cada tipo de rodado.
+        Diseño según plano de llantas.
+        Tolerancias según especificaciones originales.
+        En peso y apertura de grapas.
+        Ensayos de tracción para control de agarre.
+        Controles de fabricación para garantizar tolerancias y calidad.
       </p>
     </div>
 
@@ -30,32 +33,35 @@ import ProductCard from './ProductCard.astro';
         title="Contrapeso Autoadhesivo"
         imgSrc={`${import.meta.env.BASE_URL}/contrapeso-autoadesivo.png`}
       >
-        Cinta doble faz de alta resistencia. Tiras fraccionables para
-        llantas de aleación en autos y camionetas.
+        Fabricados con plomo antimonioso al 0.5%.
+        Cinta adhesiva de alta resistencia a la tracción.
+        Tolerancias según normas.
       </ProductCard>
 
       <!-- Producto 2 -->
       <ProductCard
-        title="Contrapeso universal de plomo (Clip)"
+        title="Contrapeso para llanta de chapa"
         imgSrc={`${import.meta.env.BASE_URL}/contrapeso-universal.png`}
       >
-        Clip de plomo. Diseñado para llantas de acero con agarre seguro ante
-        vibraciones.
+        Fabricados en plomo antimonioso al 4%. Diseñado para llantas de chapa 
+        con agarre seguro ante vibraciones.
       </ProductCard>
 
       <!-- Producto 3 -->
       <ProductCard
-        title="Contrapeso Aleación"
+        title="Contrapeso para llanta de aleación"
         imgSrc={`${import.meta.env.BASE_URL}/contrapeso-aleación.png`}
       >
-        Diseñado para llantas de Aluminio.
+        Fabricados en plomo antimonioso al 4%. Diseñado para llantas de Aluminio 
+        con agarre seguro ante vibraciones.
       </ProductCard>
     </div>
 
-    <div class="mt-12 text-center">
+    <div class="mt-8 mb-12 text-center">
       <a
         href={`${import.meta.env.BASE_URL}/catalogo-contrapesos-2026.pdf`}
-        download
+        target="_blank"
+        rel="noopener noreferrer"
         class="text-brand-primary font-semibold hover:text-brand-primaryHover flex items-center justify-center"
       >
         Ver ficha técnica completa en el PDF
@@ -72,6 +78,46 @@ import ProductCard from './ProductCard.astro';
             d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg
         >
       </a>
+    </div>
+
+    <!-- Especificaciones de Clips -->
+    <div class="mt-16 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-1/2 flex items-center">
+          <div class="p-8 lg:p-12">
+            <h3 class="text-xs font-bold tracking-widest text-brand-primary uppercase mb-2"
+            >Materia Prima</h3>
+            <h4 class="text-2xl font-extrabold text-gray-900 mb-6">
+              Clips de alta calidad</h4>
+          
+            <ul class="space-y-4 text-gray-600">
+              <li class="flex items-start">
+                <span class="text-brand-primary mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                <span>Fabricados en <strong>acero SAE 1070</strong>.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-brand-primary mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                <span>Tratamiento térmico y revenido a <strong>46 Rockwell</strong>.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-brand-primary mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                <span>Tratamiento superficial mediante <strong>baño electrolítico de cinc</strong> con limpieza mecánica.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-brand-primary mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                <span>Proceso <strong>sin ácidos</strong> para eliminar la fragilización por hidrógeno.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-brand-primary mr-3 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></span>
+                <span>Matrizado según <strong>diseño original</strong>.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:w-1/2 min-h-[300px] md:min-h-full bg-gray-100 flex items-stretch">
+          <img src={`${import.meta.env.BASE_URL}/05.jpg`} alt="Clips de Contrapesos" class="w-full object-cover" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
