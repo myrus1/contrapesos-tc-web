@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://contrapesostc.com.ar/sitemap-index.xml
