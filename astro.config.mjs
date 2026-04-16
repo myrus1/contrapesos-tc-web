@@ -1,8 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://myrus1.github.io',
-  base: '/contrapesos-tc-web',
+  site: 'https://contrapesostc.com.ar',
+  integrations: [sitemap()],
 });
